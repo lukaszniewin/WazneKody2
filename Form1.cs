@@ -206,7 +206,7 @@ namespace WazneKody2
         List<string> listcollection = new List<string>();
 
         int licznik = 0;
-        private void listBox1_Click(object sender, EventArgs e)
+        public void listBox1_Click(object sender, EventArgs e)
         {
 
             var curItem = test.FirstOrDefault(x => x.Info1 == listBox1.SelectedItem.ToString());
@@ -221,7 +221,7 @@ namespace WazneKody2
             if (string.IsNullOrEmpty(textBox1.Text) == false)
             {
                 listBox1.Visible = true;
-                //operations.Visible = true;
+                label1.Visible = true;
                 search_Result.Visible = true;
                 listBox1.Items.Clear();
                 foreach (string str in listcollection)
@@ -235,7 +235,7 @@ namespace WazneKody2
             else if (textBox1.Text == "")
             {
                 Pole_Kodu.Visible = false;
-                //operations.Visible = false;
+                label1.Visible = false;
                 search_Result.Visible = false;
                 listBox1.Visible = false;
                 listBox1.Items.Clear();
