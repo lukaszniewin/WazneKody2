@@ -39,8 +39,22 @@ namespace WazneKody2
             this.Pole_Kodu = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.licznik_VjuS = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             operations = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // operations
+            // 
+            operations.AutoSize = true;
+            operations.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            operations.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(178)))));
+            operations.Location = new System.Drawing.Point(103, 83);
+            operations.Name = "operations";
+            operations.Size = new System.Drawing.Size(0, 20);
+            operations.TabIndex = 2;
+            operations.Tag = "";
+            operations.Visible = false;
             // 
             // search_Lebel
             // 
@@ -63,19 +77,6 @@ namespace WazneKody2
             this.textBox1.TabIndex = 1;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // operations
-            // 
-            operations.AutoSize = true;
-            operations.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            operations.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(178)))));
-            operations.Location = new System.Drawing.Point(103, 83);
-            operations.Name = "operations";
-            operations.Size = new System.Drawing.Size(161, 20);
-            operations.TabIndex = 2;
-            operations.Tag = "";
-            operations.Text = "Dostępne operacje";
-            operations.Visible = false;
-            // 
             // listBox1
             // 
             this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -87,11 +88,13 @@ namespace WazneKody2
             this.listBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(249)))));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(70, 109);
+            this.listBox1.Location = new System.Drawing.Point(56, 106);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(234, 64);
+            this.listBox1.Size = new System.Drawing.Size(253, 64);
             this.listBox1.TabIndex = 3;
             this.listBox1.Visible = false;
+            this.listBox1.Click += new System.EventHandler(this.listBox1_Click);
+            this.listBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBox1_KeyDown);
             // 
             // search_Result
             // 
@@ -107,37 +110,56 @@ namespace WazneKody2
             // 
             // Pole_Kodu
             // 
+            this.Pole_Kodu.AutoEllipsis = true;
             this.Pole_Kodu.AutoSize = true;
             this.Pole_Kodu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Pole_Kodu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(249)))));
-            this.Pole_Kodu.Location = new System.Drawing.Point(96, 201);
+            this.Pole_Kodu.Location = new System.Drawing.Point(85, 201);
             this.Pole_Kodu.Name = "Pole_Kodu";
             this.Pole_Kodu.Size = new System.Drawing.Size(104, 16);
             this.Pole_Kodu.TabIndex = 5;
             this.Pole_Kodu.Text = "Kod Aktywacji";
             this.Pole_Kodu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolTip1.SetToolTip(this.Pole_Kodu, "Kliknij 2 razy LPP aby skopiować!");
+            this.toolTip1.SetToolTip(this.Pole_Kodu, "Kliknij 2 razy LPM aby skopiować! Zmiana tła = skopiowano");
             this.Pole_Kodu.Visible = false;
+            this.Pole_Kodu.DoubleClick += new System.EventHandler(this.Pole_Kodu_DoubleClick);
             // 
             // licznik_VjuS
             // 
             this.licznik_VjuS.AutoSize = true;
             this.licznik_VjuS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.licznik_VjuS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(178)))));
-            this.licznik_VjuS.Location = new System.Drawing.Point(194, 280);
+            this.licznik_VjuS.Location = new System.Drawing.Point(191, 280);
             this.licznik_VjuS.Name = "licznik_VjuS";
             this.licznik_VjuS.Size = new System.Drawing.Size(45, 16);
             this.licznik_VjuS.TabIndex = 6;
             this.licznik_VjuS.Text = "label4";
             this.licznik_VjuS.Visible = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(178)))));
+            this.label1.Location = new System.Drawing.Point(103, 83);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(161, 20);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Dostępne operacje";
+            this.label1.Visible = false;
+            // 
+            // toolTip2
+            // 
+            this.toolTip2.ToolTipTitle = "2click";
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(373, 301);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.licznik_VjuS);
             this.Controls.Add(this.Pole_Kodu);
             this.Controls.Add(this.search_Result);
@@ -148,11 +170,18 @@ namespace WazneKody2
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(389, 340);
             this.Name = "Form1";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Ważne Kody";
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void ListBox1_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
 
         #endregion
@@ -164,6 +193,8 @@ namespace WazneKody2
         private System.Windows.Forms.Label Pole_Kodu;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label licznik_VjuS;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolTip toolTip2;
     }
 }
 
